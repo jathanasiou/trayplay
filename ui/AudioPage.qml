@@ -315,7 +315,7 @@ Kirigami.Page {
         ColumnLayout {
             Controls.RadioButton {
                 id: defaultMicrophoneRadio
-                text: qsTr("Default microhpone")
+                text: qsTr("Default microphone")
                 checked: true
             }
 

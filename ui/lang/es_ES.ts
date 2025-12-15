@@ -70,7 +70,7 @@
     </message>
     <message>
         <location filename="../AudioPage.qml" line="318"/>
-        <source>Default microhpone</source>
+        <source>Default microphone</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
