@@ -24,10 +24,13 @@ pub fn get_app_name(desktop_file: &str) -> Result<Option<String>, std::io::Error
 
     Ok(if let Some(desktop_file_path) = desktop_file_path {
         let parsed = freedesktop_entry_parser::parse_entry(desktop_file_path)?;
-        parsed
-            .section("Desktop Entry")
-            .attr("Name")
-            .map(|v| v.to_string())
+        Some(
+            parsed
+                .section("Desktop Entry")
+                .ok_or(std::io::ErrorKind::InvalidData)?
+                .attr("Name")[0]
+                .clone(),
+        )
     } else {
         None
     })
