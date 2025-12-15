@@ -4,7 +4,7 @@ version = "1.0.0"
 edition = "2024"
 
 [dependencies]
-ashpd = { git = "https://github.com/kabuspl/ashpd.git" }
+ashpd = "0.12.0"
 cpp = "0.5.10"
 cstr = "0.2.12"
 ctrlc = { version = "3.4.7", features = ["termination"] }

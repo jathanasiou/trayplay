@@ -1,6 +1,6 @@
-use std::{error::Error, sync::Arc};
+use std::{error::Error, str::FromStr, sync::Arc};
 
-use ashpd::desktop::registry::Registry;
+use ashpd::{AppID, register_host_app};
 use config::Config;
 use gsr::GpuScreenRecorder;
 use ksni::TrayMethods;
@@ -79,7 +79,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     kwin_script_manager.load().await;
 
     // Let xdg portal know what desktop file are we
-    Registry::default().register("ovh.kabus.trayplay").await?;
+    register_host_app(AppID::from_str("ovh.kabus.trayplay").unwrap()).await?;
 
     let tray = TrayIcon::new(action_tx.clone(), &config).await;
     // let tray = TrayIconClean::new(action_tx.clone(), &config);
